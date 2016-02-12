@@ -1,0 +1,60 @@
+.hamburger-container {
+	width: 19px;
+	height: 19px;
+}
+
+.hamburger {
+	position: relative;
+	display: inline-block;
+	width: 19px;
+	height: 2px;
+	background: #000;
+	transition-property: background;
+	transition-duration: .3s;
+	transition-timing-function: ease;
+	transition-delay: .6s;
+
+
+	&:before, &:after {
+		content: "";
+		position: absolute;
+		width: 19px;
+		height: 2px;
+		background: #000;
+		transform-origin: 50% 50%;
+		transition: top .3s ease .6s, transform .3s ease;
+	}
+
+	&:before {
+		top: -4px;
+	}
+
+	&:after {
+		bottom: -4px;
+	}
+
+}
+
+.hamburger-container:hover {
+
+	.hamburger {
+
+		transition: background .3s ease 0s;
+		background: transparent;
+
+		&:before, &:after {
+			transition: top .3s ease, transform .3 ease .5s;
+			top: 0;
+		}
+
+		&:before {
+			transform: rotate3d (0,0,1,45deg);
+		}
+
+		&:after {
+			transform: rotate3d (0,0,1,-45deg);
+		}
+
+	}
+
+}
